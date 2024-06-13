@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get CRUD</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    .btn-edit {
+        outline: none;
+        border: none;
+        background: orange;
+        height: 25px;
+        width: 60px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .btn-delete {
+        outline: none;
+        border: none;
+        background: #14a072;
+        height: 25px;
+        width: 60px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="col-12 mt-3">Thong tin cac lop hoc</div>
+    <table style="width:100%">
+        <tr>
+            <th>Ten Lop</th>
+            <th>Ngay Khai Giang</th>
+            <th>Ngay Ket Thuc</th>
+            <th>Si so</th>
+            <th>Actions</th>
+        </tr>
+        <% for(let i=0; i< dataTable.length; i++) { %>
+            <tr>
+                <td>
+                    <%= dataTable[i].tenLop %>
+                </td>
+                <td>
+                    <%= dataTable[i].ngayKhaiGiang %>
+                </td>
+                <td>
+                    <%= dataTable[i].ngayKetThuc %>
+                </td>
+                <td>
+                    <%= dataTable[i].siSo %>
+                </td>
+                <td>
+                    <a href="/edit-crudClass?id=<%= dataTable[i].id %>" class="btn-edit" type="button">Edit</a>
+                    <a href="/delete-crudClass?id=<%= dataTable[i].id %>" class="btn-delete" type="button">Delete</a>
+                    <a href="/classStudenList?id=<%= dataTable[i].id %>" class="btn-delete" type="button">Detail</a>
+                </td>
+            </tr>
+            <%} %>
+    </table>
+</body>
+
+</html>
